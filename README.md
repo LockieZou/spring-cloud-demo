@@ -18,23 +18,30 @@ spring cloud demo 项目
 - spring boot 2.x
 - maven 3.9
 - jdk 1.8
+- mysql 5.9
 - redis 2.9
 - mongodb 3.x
 - rabbitmq
 
 #### 服务说明
-- common-service 通用服务
-- eureka-service 注册中心
-- order-service 订单服务
-- product-service 商品服务
-- user-service 用户服务
-- address-service 地址服务
-- gateway-service 网关服务
-- zipkin-service 服务跟踪治理
+- common-service 通用服务，端口号 5005
+- eureka-service 注册中心，端口号 5000
+- order-service 订单服务，端口号 5100
+- product-service 商品服务，端口号 5300
+- user-service 用户服务，端口号 5200
+- address-service 地址服务，端口号 5400
+- gateway-service 网关服务，端口号 5001
+- zipkin-service 服务跟踪治理，端口号 5003
 
 
 
 ##### 简要说明
+由于使用了网关所以所有的服务都统一个地址访问 http://localhost:5001/*，为了方便测试服务是否正常
+在每个服务中都有一个 getPort() 获取端口号的接口，比如：
+http://localhost:5001/ADDRESS-SERVICE/address/getPort
+http://localhost:5001/ORDER-SERVICE/order/getPort
+由于使用了spring cloud RC版本的网关gateWay，所以在访问的时候采取的是默认的服务名大写的方式访问。
+
 address-service 使用的技术框架比较全，包含redis,mongodb,rabbitmq
 
 **mongodb:**  
