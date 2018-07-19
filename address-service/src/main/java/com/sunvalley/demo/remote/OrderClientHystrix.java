@@ -5,7 +5,7 @@ import com.sunvalley.demo.vo.BaseReturnVO;
 import org.springframework.stereotype.Component;
 
 /**
- * 类或方法的功能描述 :TODO
+ * 类或方法的功能描述 : 订单服务调用熔断
  *
  * @author: logan.zou
  * @date: 2018-06-21 10:28
