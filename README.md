@@ -38,7 +38,7 @@ spring cloud demo 项目
 ##### 简要说明
 由于使用了网关所以所有的服务都统一个地址访问 http://localhost:5001/*， 为了方便测试服务是否正常
 在每个服务中都有一个 getPort() 获取端口号的接口，比如：</br>
-http://localhost:5001/ADDRESS-SERVICE/address/getPort
+http://localhost:5001/ADDRESS-SERVICE/address/getPort </br>
 http://localhost:5001/ORDER-SERVICE/order/getPort </br>
 由于使用了spring cloud RC版本的网关gateWay，所以在访问的时候采取的是默认的服务名大写的方式访问。
 
