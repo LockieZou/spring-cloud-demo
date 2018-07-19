@@ -1,0 +1,93 @@
+spring:
+  datasource:
+    driver-class-name : com.mysql.jdbc.Driver
+    url : jdbc:mysql://localhost:3306/spring_cloud_demo?useUnicode=true&characterEncoding=utf8&jdbcCompliantTruncation=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&autoReconnect=true
+    username : root
+    password : 123456
+    type : com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size : 20
+      min-idle : 1
+      max-active : 500
+      max-wait : 60000
+      time-between-eviction-runs-millis : 60000
+      min-evictable-idle-time-millis : 300000
+      max-evictable-idle-time-millis : 300000
+      validation-query : SELECT 1
+      validation-query-timeout : 30000
+      test-while-idle : true
+      test-on-borrow : false
+      test-on-return : false
+      pool-prepared-statements : false
+      max-pool-prepared-statement-per-connection-size : 20
+      max-open-prepared-statements : 20
+      filters : stat,slf4j
+      filter:
+        slf4j:
+          enabled: true
+#          statement-executable-sql-log-enable: false
+#          statement-close-after-log-enabled: false
+#          result-set-open-after-log-enabled: false
+#          result-set-close-after-log-enabled: false
+#          stat:
+#            enabled: true
+#            db-type: mysql
+#            log-slow-sql: true
+#            slow-sql-millis: 2000
+#            merge-sql: true
+#          wall:
+#            enabled: true
+#            db-type: mysql
+#            config:
+#              delete-allow: false
+#              drop-table-allow: false
+#              create-table-allow: false
+#              alter-table-allow: false
+#              truncate-allow: false
+
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    time-zone: "GMT+08"
+    default-property-inclusion: non_null
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+  mvc:
+    throw-exception-if-no-handler-found: true #出现 404 错误时, 直接抛出异常
+  resources:
+    add-mappings: false   #不要为我们工程中的资源文件建立映射
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+#      username: root
+#      password: 123456
+      database: db0
+      authentication-database: local
+  rabbitmq:
+    host: localhost
+    port: 5672
+    virtual-host: /vhost_db0
+    username: logan
+    password: 12345678
+    publisher-confirms: true      # P端收到回调，确认消息接收
+    publisher-returns: true
+    template:
+      mandatory: true
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password: 123456
+    timeout: 3600
+    jedis:
+      pool:
+        max-active: 100         #连接池最大连接数，负数表示没有限制
+        max-wait: -1            #连接池最大阻塞等待时间
+        max-idle: 20             #连接池最大空闲数
+        min-idle: 5              #连接池最小空闲数
+      shutdown-timeout: 3000     #jedis连接超时
+
+

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="address-service" />
+        <module name="common-service" />
+        <module name="eureka-service" />
+        <module name="gateway-service" />
+        <module name="order-service" />
+        <module name="product-service" />
+        <module name="swagger-butler-service" />
+        <module name="user-service" />
+        <module name="zipkin-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.8">
+      <module name="address-service" target="1.8" />
+      <module name="common-service" target="1.8" />
+      <module name="eureka-service" target="1.8" />
+      <module name="gateway-service" target="1.8" />
+      <module name="order-service" target="1.8" />
+      <module name="product-service" target="1.8" />
+      <module name="spring-cloud-demo" target="1.8" />
+      <module name="swagger-butler-service" target="1.8" />
+      <module name="user-service" target="1.8" />
+      <module name="zipkin-service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
