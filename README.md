@@ -56,6 +56,13 @@ rabbitmq 可视化界面需要安装插件，安装完后访问  http://127.0.0.
 **redis:**
 redis 可视化工具使用 redis desktop manager 下载安装连接到redis即可使用
 
+**druid监控平台:**
+druid是阿里提供的一个管理sql的工具，首先配置引入druid相关jar包详见address-service的pom.xml配置文件
+然后新增DruidStatFilter和DruidStatViewServlet配置文件即可。启动eureka-service和gateway-service
+后再启动address-service，在浏览器中输入 http://localhost:5400/druid 即可进入到druid监控页面
+输入账号admin，密码123456即可进入。
+
+
 
 
 
