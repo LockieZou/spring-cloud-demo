@@ -4,6 +4,7 @@ import com.sunvalley.demo.enums.ApiMsgEnum;
 import com.sunvalley.demo.model.MongoShopAddress;
 import com.sunvalley.demo.model.ShopAddress;
 import com.sunvalley.demo.remote.OrderClient;
+import com.sunvalley.demo.remote.OrderRibbonClient;
 import com.sunvalley.demo.service.RabbitMqSender;
 import com.sunvalley.demo.service.MongoDBShopAddressService;
 import com.sunvalley.demo.service.RedisShopAddressService;
@@ -32,6 +33,8 @@ public class AddressController {
     @Autowired
     OrderClient orderClient;
     @Autowired
+    OrderRibbonClient orderRibbonClient;
+    @Autowired
     MongoDBShopAddressService mongoDBShopAddressService;
     @Autowired
     RabbitMqSender rabbitMqSender;
@@ -49,6 +52,9 @@ public class AddressController {
         log.info("address-service port：" + port);
         return "address-service port：" + port;
     }
+
+    /**========================================= mysql 操作 ========================================================**/
+
 
     /**
      * 根据订单ID查询地址
@@ -101,12 +107,12 @@ public class AddressController {
     }
 
     /**
-     * 查询 order-service 的数据
+     * 使用feign调用 order-service 查询数据
      * @param id
      * @return
      */
-    @GetMapping("/getOrderById/{id}")
-    public BaseReturnVO getOrderById(@PathVariable("id") Integer id) {
+    @GetMapping("/feign/getFeignOrderById/{id}")
+    public BaseReturnVO getFeignOrderById(@PathVariable("id") Integer id) {
         if (null == id) {
             BaseReturnVO baseReturnVO = new BaseReturnVO();
             baseReturnVO.setResCode(ApiMsgEnum.COMMON_SERVER_ERROR.getResCode());
@@ -124,6 +130,45 @@ public class AddressController {
             return baseReturnVO;
         }
     }
+
+    /**
+     * 使用ribbon调用 order-service 的端口号测试负载均衡
+     * 首先需要启动一个order-service服务，然后修改端口号后再次启动，原来不要关了，然后多次访问这个接口就会发现调用了不同的端口
+     * @return
+     */
+    @GetMapping("/ribbon/getRibbonOrderPort")
+    public String getRibbonOrderPort() {
+        return orderRibbonClient.getPort();
+    }
+
+    /**
+     * 使用ribbon调用 order-service 查询数据
+     * @param id
+     * @return
+     */
+    @GetMapping("/ribbon/getRibbonOrderById/{id}")
+    public BaseReturnVO getRibbonOrderById(@PathVariable("id") Integer id) {
+        if (null == id) {
+            BaseReturnVO baseReturnVO = new BaseReturnVO();
+            baseReturnVO.setResCode(ApiMsgEnum.COMMON_SERVER_ERROR.getResCode());
+            baseReturnVO.setResDes("order id is empty!");
+            return baseReturnVO;
+        }
+        try {
+            BaseReturnVO baseReturnVO = orderRibbonClient.getOrderById(id);
+            return baseReturnVO;
+        } catch (Exception e) {
+            log.error("getAddressByOrderId error!" + e.getMessage());
+            BaseReturnVO baseReturnVO = new BaseReturnVO();
+            baseReturnVO.setResCode(ApiMsgEnum.INTERNAL_SERVER_ERROR.getResCode());
+            baseReturnVO.setResDes(ApiMsgEnum.INTERNAL_SERVER_ERROR.getResDes());
+            return baseReturnVO;
+        }
+    }
+
+    /**========================================= mysql 操作 ========================================================**/
+
+
 
     /**========================================= mongodb操作 ========================================================**/
 

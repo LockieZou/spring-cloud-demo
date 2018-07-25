@@ -5,6 +5,7 @@ spring cloud demo 项目
 * eureka注册中心
 * gateway网关
 * feign声明式调用
+* ribbon负载均衡
 * hystrix熔断机制  
 * zipkin服务追踪治理
     
@@ -14,7 +15,7 @@ spring cloud demo 项目
 5.Rabbitmq
 
 #### 项目框架版本
-- spring cloud RC.2
+- spring cloud Finchley.RELEASE
 - spring boot 2.x
 - maven 3.9
 - jdk 1.8
@@ -43,6 +44,16 @@ http://localhost:5001/ORDER-SERVICE/order/getPort </br>
 由于使用了spring cloud RC版本的网关gateWay，所以在访问的时候采取的是默认的服务名大写的方式访问。
 
 address-service 使用的技术框架比较全，包含redis,mongodb,rabbitmq
+
+address-service使用了ribbon负载均衡，在跨服务调用order-service的时候有两种方式调用<br/>
+1.使用feign调用，启动服务后浏览器访问 http://localhost:5001/ADDRESS-SERVICE/address/feign/getFeignOrderById/2 <br/>
+2.使用ribbon调用，首选需要使用idea启动2个服务，先启动一个order-service，然后修改端口号为4100后再启动一个此时在
+eureka注册中心可以看到两个order-service（idea怎么启动两个服务参照：https://blog.csdn.net/zxl646801924/article/details/81207089）<br/>
+启动两个order-service后再启动address-service服务，然后浏览器多次访问：<br/>
+http://localhost:5001/ADDRESS-SERVICE/address/ribbon/getRibbonOrderPort <br/>
+就可以得到如下结果： <br/>
+order-service port：5100 <br/>
+order-service port：4100 <br/>
 
 **mongodb:**  
 mongodb使用了mongodbAdmin可视化工具，所以首先需要安装这个工具，
