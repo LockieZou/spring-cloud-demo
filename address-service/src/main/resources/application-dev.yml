@@ -25,25 +25,6 @@ spring:
       filter:
         slf4j:
           enabled: true
-#          statement-executable-sql-log-enable: false
-#          statement-close-after-log-enabled: false
-#          result-set-open-after-log-enabled: false
-#          result-set-close-after-log-enabled: false
-#          stat:
-#            enabled: true
-#            db-type: mysql
-#            log-slow-sql: true
-#            slow-sql-millis: 2000
-#            merge-sql: true
-#          wall:
-#            enabled: true
-#            db-type: mysql
-#            config:
-#              delete-allow: false
-#              drop-table-allow: false
-#              create-table-allow: false
-#              alter-table-allow: false
-#              truncate-allow: false
 
   jackson:
     date-format: "yyyy-MM-dd HH:mm:ss"

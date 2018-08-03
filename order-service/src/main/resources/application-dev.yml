@@ -39,3 +39,21 @@ spring:
     throw-exception-if-no-handler-found: true #出现 404 错误时, 直接抛出异常
   resources:
     add-mappings: false #不要为我们工程中的资源文件建立映射
+  rabbitmq:
+    host: localhost
+    port: 5672
+    virtual-host: /vhost_db0
+    username: logan
+    password: 12345678
+    publisher-confirms: true      # P端收到回调，确认消息接收
+    publisher-returns: true
+    template:
+      mandatory: true
+    listener:
+      simple:
+        concurrency: 5
+        max-concurrency: 10
+        transaction-size: 1
+        acknowledge-mode: manual  # 手动ACK 不开启自动ACK模式,目的是防止报错后未正确处理消息丢失 默认 为 none
+      direct:
+        prefetch: 1
