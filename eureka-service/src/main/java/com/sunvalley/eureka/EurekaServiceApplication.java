@@ -1,4 +1,4 @@
-package com.sunvalley.demo;
+package com.sunvalley.eureka;
 
 
 import org.springframework.boot.SpringApplication;
