@@ -1,6 +1,6 @@
 package com.sunvalley.demo.remote;
 
-import com.sunvalley.demo.vo.BaseReturnVO;
+import com.sunvalley.common.vo.BaseReturnVO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

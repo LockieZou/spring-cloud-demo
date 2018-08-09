@@ -1,5 +1,7 @@
 package com.sunvalley.demo.model;
 
+import com.sunvalley.common.model.BaseModel;
+
 public class ShopAddress extends BaseModel {
     private Integer orderId;
 

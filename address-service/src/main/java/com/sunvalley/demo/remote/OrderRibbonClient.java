@@ -1,6 +1,6 @@
 package com.sunvalley.demo.remote;
 
-import com.sunvalley.demo.vo.BaseReturnVO;
+import com.sunvalley.common.vo.BaseReturnVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

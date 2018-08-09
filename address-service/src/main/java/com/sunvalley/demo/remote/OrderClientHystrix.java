@@ -1,7 +1,7 @@
 package com.sunvalley.demo.remote;
 
-import com.sunvalley.demo.enums.ApiMsgEnum;
-import com.sunvalley.demo.vo.BaseReturnVO;
+import com.sunvalley.common.enums.ApiMsgEnum;
+import com.sunvalley.common.vo.BaseReturnVO;
 import org.springframework.stereotype.Component;
 
 /**

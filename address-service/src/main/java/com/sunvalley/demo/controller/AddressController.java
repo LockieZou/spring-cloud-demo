@@ -1,6 +1,6 @@
 package com.sunvalley.demo.controller;
 
-import com.sunvalley.demo.enums.ApiMsgEnum;
+import com.sunvalley.common.enums.ApiMsgEnum;
 import com.sunvalley.demo.model.MongoShopAddress;
 import com.sunvalley.demo.model.ShopAddress;
 import com.sunvalley.demo.remote.OrderClient;
@@ -9,9 +9,8 @@ import com.sunvalley.demo.service.RabbitMqSender;
 import com.sunvalley.demo.service.MongoDBShopAddressService;
 import com.sunvalley.demo.service.RedisShopAddressService;
 import com.sunvalley.demo.service.ShopAddressService;
-import com.sunvalley.demo.vo.BaseReturnVO;
+import com.sunvalley.common.vo.BaseReturnVO;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.validator.constraints.SafeHtml;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;

@@ -5,7 +5,7 @@
 
 	<groupId>com.sunvalley.springcloud</groupId>
 	<artifactId>spring-cloud-demo</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0.RELEASE</version>
 	<packaging>pom</packaging>
 
 	<name>spring-cloud-demo</name>
