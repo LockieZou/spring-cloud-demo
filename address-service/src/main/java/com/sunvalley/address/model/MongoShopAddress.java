@@ -1,4 +1,4 @@
-package com.sunvalley.demo.model;
+package com.sunvalley.address.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;

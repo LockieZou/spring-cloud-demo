@@ -1,4 +1,4 @@
-package com.sunvalley.demo.remote;
+package com.sunvalley.address.remote;
 
 import com.sunvalley.common.enums.ApiMsgEnum;
 import com.sunvalley.common.vo.BaseReturnVO;

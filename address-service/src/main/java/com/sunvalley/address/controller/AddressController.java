@@ -1,14 +1,14 @@
-package com.sunvalley.demo.controller;
+package com.sunvalley.address.controller;
 
 import com.sunvalley.common.enums.ApiMsgEnum;
-import com.sunvalley.demo.model.MongoShopAddress;
-import com.sunvalley.demo.model.ShopAddress;
-import com.sunvalley.demo.remote.OrderClient;
-import com.sunvalley.demo.remote.OrderRibbonClient;
-import com.sunvalley.demo.service.RabbitMqSender;
-import com.sunvalley.demo.service.MongoDBShopAddressService;
-import com.sunvalley.demo.service.RedisShopAddressService;
-import com.sunvalley.demo.service.ShopAddressService;
+import com.sunvalley.address.model.MongoShopAddress;
+import com.sunvalley.address.model.ShopAddress;
+import com.sunvalley.address.remote.OrderClient;
+import com.sunvalley.address.remote.OrderRibbonClient;
+import com.sunvalley.address.service.RabbitMqSender;
+import com.sunvalley.address.service.MongoDBShopAddressService;
+import com.sunvalley.address.service.RedisShopAddressService;
+import com.sunvalley.address.service.ShopAddressService;
 import com.sunvalley.common.vo.BaseReturnVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * 类或方法的功能描述 :TODO
+ * 类或方法的功能描述 : 地址接口服务
  *
  * @author: logan.zou
  * @date: 2018-06-22 16:17

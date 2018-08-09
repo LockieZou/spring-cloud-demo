@@ -1,7 +1,7 @@
-package com.sunvalley.demo.service;
+package com.sunvalley.address.service;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sunvalley.demo.model.ShopAddress;
+import com.sunvalley.address.model.ShopAddress;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -1,8 +1,8 @@
-package com.sunvalley.demo.service;
+package com.sunvalley.address.service;
 
 import com.alibaba.fastjson.JSON;
-import com.sunvalley.demo.mapper.ShopAddressMapper;
-import com.sunvalley.demo.model.ShopAddress;
+import com.sunvalley.address.mapper.ShopAddressMapper;
+import com.sunvalley.address.model.ShopAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

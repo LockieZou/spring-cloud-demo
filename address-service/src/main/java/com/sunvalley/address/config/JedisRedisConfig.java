@@ -1,4 +1,4 @@
-package com.sunvalley.demo.config;
+package com.sunvalley.address.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

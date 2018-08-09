@@ -1,4 +1,4 @@
-package com.sunvalley.demo.model;
+package com.sunvalley.address.model;
 
 import com.sunvalley.common.model.BaseModel;
 

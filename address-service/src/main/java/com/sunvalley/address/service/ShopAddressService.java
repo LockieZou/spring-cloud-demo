@@ -1,8 +1,8 @@
-package com.sunvalley.demo.service;
+package com.sunvalley.address.service;
 
-import com.sunvalley.demo.mapper.ShopAddressMapper;
-import com.sunvalley.demo.model.ShopAddress;
-import com.sunvalley.demo.model.ShopAddressExample;
+import com.sunvalley.address.model.ShopAddress;
+import com.sunvalley.address.model.ShopAddressExample;
+import com.sunvalley.address.mapper.ShopAddressMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

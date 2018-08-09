@@ -1,6 +1,6 @@
-package com.sunvalley.demo.service;
+package com.sunvalley.address.service;
 
-import com.sunvalley.demo.model.MongoShopAddress;
+import com.sunvalley.address.model.MongoShopAddress;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;

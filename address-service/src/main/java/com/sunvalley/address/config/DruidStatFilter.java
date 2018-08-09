@@ -1,4 +1,4 @@
-package com.sunvalley.demo.config;
+package com.sunvalley.address.config;
 
 import com.alibaba.druid.support.http.WebStatFilter;
 

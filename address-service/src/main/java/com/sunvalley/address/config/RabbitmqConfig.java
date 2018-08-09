@@ -1,4 +1,4 @@
-package com.sunvalley.demo.config;
+package com.sunvalley.address.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.context.annotation.Bean;

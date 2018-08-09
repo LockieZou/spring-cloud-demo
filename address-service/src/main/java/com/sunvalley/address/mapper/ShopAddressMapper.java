@@ -1,7 +1,7 @@
-package com.sunvalley.demo.mapper;
+package com.sunvalley.address.mapper;
 
-import com.sunvalley.demo.model.ShopAddress;
-import com.sunvalley.demo.model.ShopAddressExample;
+import com.sunvalley.address.model.ShopAddress;
+import com.sunvalley.address.model.ShopAddressExample;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

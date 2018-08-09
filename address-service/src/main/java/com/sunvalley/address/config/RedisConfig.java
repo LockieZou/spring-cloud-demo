@@ -1,6 +1,6 @@
-package com.sunvalley.demo.config;
+package com.sunvalley.address.config;
 
-import com.sunvalley.demo.util.FastJsonRedisSerializer;
+import com.sunvalley.address.util.FastJsonRedisSerializer;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.data.redis.RedisProperties;

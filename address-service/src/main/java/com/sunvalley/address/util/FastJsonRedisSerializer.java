@@ -1,4 +1,4 @@
-package com.sunvalley.demo.util;
+package com.sunvalley.address.util;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
