@@ -1,4 +1,4 @@
-package com.sunvalley.util;
+package com.sunvalley.demo.util;
 
 import org.apache.commons.lang.StringUtils;
 

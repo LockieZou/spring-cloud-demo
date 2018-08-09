@@ -1,4 +1,4 @@
-package com.sunvalley.util;
+package com.sunvalley.demo.util;
 
 import java.math.BigDecimal;
 import java.util.Random;

@@ -2,9 +2,9 @@ package com.sunvalley.demo.controller;
 
 import com.sunvalley.demo.enums.ApiMsgEnum;
 import com.sunvalley.demo.model.ShopOrder;
+import com.sunvalley.demo.modelEX.ShopOrderEX;
 import com.sunvalley.demo.service.OrderService;
 import com.sunvalley.demo.vo.BaseReturnVO;
-import com.sunvalley.modelEX.ShopOrderEX;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,12 +1,11 @@
 package com.sunvalley.demo.service;
 
 import com.alibaba.druid.util.StringUtils;
-import com.sunvalley.demo.config.RabbitMqConfig;
 import com.sunvalley.demo.mapper.ShopOrderItemMapper;
 import com.sunvalley.demo.mapper.ShopOrderMapper;
 import com.sunvalley.demo.model.ShopOrder;
 import com.sunvalley.demo.model.ShopOrderExample;
-import com.sunvalley.modelEX.ShopOrderEX;
+import com.sunvalley.demo.modelEX.ShopOrderEX;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.AmqpException;
 import org.springframework.amqp.core.Message;

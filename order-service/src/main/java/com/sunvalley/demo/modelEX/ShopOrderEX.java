@@ -1,4 +1,4 @@
-package com.sunvalley.modelEX;
+package com.sunvalley.demo.modelEX;
 
 import com.sunvalley.demo.model.ShopOrder;
 import com.sunvalley.demo.model.ShopOrderItem;
