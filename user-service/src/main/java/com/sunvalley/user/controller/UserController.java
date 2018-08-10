@@ -1,5 +1,6 @@
 package com.sunvalley.user.controller;
 
+import com.sunvalley.common.enums.ApiMsgEnum;
 import com.sunvalley.common.vo.BaseReturnVO;
 import com.sunvalley.user.model.User;
 import com.sunvalley.user.remote.OrderRemote;
@@ -7,10 +8,7 @@ import com.sunvalley.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * 类或方法的功能描述 : 用户接口
@@ -58,6 +56,25 @@ public class UserController {
     public BaseReturnVO getUserById(@PathVariable("id") Integer id) {
         User user = userService.getUserById(id);
         return new BaseReturnVO(user);
+    }
+
+    /**
+     * 保存用户
+     * @param user
+     * @return
+     */
+    @PostMapping("/saveUser")
+    public BaseReturnVO saveUser(@RequestBody User user) {
+        if (null == user) {
+            return new BaseReturnVO(ApiMsgEnum.OK.getResCode(), "用户信息为空");
+        }
+        try {
+            User userTmp = userService.saveAndUpdateUser(user);
+            return new BaseReturnVO(userTmp);
+        } catch (Exception e) {
+            log.error("保存用户失败");
+            return new BaseReturnVO(ApiMsgEnum.INTERNAL_SERVER_ERROR.getResCode(), "保存用户信息失败", e);
+        }
     }
 } 
 

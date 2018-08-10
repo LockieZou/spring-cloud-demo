@@ -75,6 +75,7 @@ druid是阿里提供的一个管理sql的工具，首先配置引入druid相关j
 
 
 
-
+##### 备注
+每个服务都继承了mybatis的代码生成器每个项目都有mybatis-generator.xml文件，需要生成代码的时候只要添加表名然后使用mybatis插件生成代码即可
 
 
