@@ -12,10 +12,6 @@ public class ShopOrderExample {
 
     protected List<Criteria> oredCriteria;
 
-    private int pageIndex;
-
-    private int pageSize;
-
     public ShopOrderExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
@@ -67,36 +63,6 @@ public class ShopOrderExample {
         oredCriteria.clear();
         orderByClause = null;
         distinct = false;
-    }
-
-    public void setPageIndex(int pageIndex) {
-        this.pageIndex=pageIndex;
-    }
-
-    public int getPageIndex() {
-        return this.pageIndex;
-    }
-
-    public void setPageSize(int pageSize) {
-        this.pageSize=pageSize;
-    }
-
-    public int getPageSize() {
-        return this.pageSize;
-    }
-
-    public int getSkipRecordCount() {
-        return (this.pageIndex-1)*this.pageSize;
-    }
-
-    public int getEndRecordCount() {
-        return this.pageIndex*this.pageSize;
-    }
-
-    public ShopOrderExample(int pageSize, int pageIndex) {
-        this();
-        this.pageSize=pageSize;
-        this.pageIndex=pageIndex;
     }
 
     protected abstract static class GeneratedCriteria {
@@ -200,63 +166,63 @@ public class ShopOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdIsNull() {
-            addCriterion("customer_id is null");
+        public Criteria andUserIdIsNull() {
+            addCriterion("user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdIsNotNull() {
-            addCriterion("customer_id is not null");
+        public Criteria andUserIdIsNotNull() {
+            addCriterion("user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdEqualTo(Integer value) {
-            addCriterion("customer_id =", value, "customerId");
+        public Criteria andUserIdEqualTo(Integer value) {
+            addCriterion("user_id =", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdNotEqualTo(Integer value) {
-            addCriterion("customer_id <>", value, "customerId");
+        public Criteria andUserIdNotEqualTo(Integer value) {
+            addCriterion("user_id <>", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdGreaterThan(Integer value) {
-            addCriterion("customer_id >", value, "customerId");
+        public Criteria andUserIdGreaterThan(Integer value) {
+            addCriterion("user_id >", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("customer_id >=", value, "customerId");
+        public Criteria andUserIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("user_id >=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdLessThan(Integer value) {
-            addCriterion("customer_id <", value, "customerId");
+        public Criteria andUserIdLessThan(Integer value) {
+            addCriterion("user_id <", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdLessThanOrEqualTo(Integer value) {
-            addCriterion("customer_id <=", value, "customerId");
+        public Criteria andUserIdLessThanOrEqualTo(Integer value) {
+            addCriterion("user_id <=", value, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdIn(List<Integer> values) {
-            addCriterion("customer_id in", values, "customerId");
+        public Criteria andUserIdIn(List<Integer> values) {
+            addCriterion("user_id in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdNotIn(List<Integer> values) {
-            addCriterion("customer_id not in", values, "customerId");
+        public Criteria andUserIdNotIn(List<Integer> values) {
+            addCriterion("user_id not in", values, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdBetween(Integer value1, Integer value2) {
-            addCriterion("customer_id between", value1, value2, "customerId");
+        public Criteria andUserIdBetween(Integer value1, Integer value2) {
+            addCriterion("user_id between", value1, value2, "userId");
             return (Criteria) this;
         }
 
-        public Criteria andCustomerIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("customer_id not between", value1, value2, "customerId");
+        public Criteria andUserIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("user_id not between", value1, value2, "userId");
             return (Criteria) this;
         }
 
@@ -837,6 +803,126 @@ public class ShopOrderExample {
 
         public Criteria andOrderSourceNotBetween(String value1, String value2) {
             addCriterion("order_source not between", value1, value2, "orderSource");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagIsNull() {
+            addCriterion("order_email_flag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagIsNotNull() {
+            addCriterion("order_email_flag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagEqualTo(Integer value) {
+            addCriterion("order_email_flag =", value, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagNotEqualTo(Integer value) {
+            addCriterion("order_email_flag <>", value, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagGreaterThan(Integer value) {
+            addCriterion("order_email_flag >", value, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagGreaterThanOrEqualTo(Integer value) {
+            addCriterion("order_email_flag >=", value, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagLessThan(Integer value) {
+            addCriterion("order_email_flag <", value, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagLessThanOrEqualTo(Integer value) {
+            addCriterion("order_email_flag <=", value, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagIn(List<Integer> values) {
+            addCriterion("order_email_flag in", values, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagNotIn(List<Integer> values) {
+            addCriterion("order_email_flag not in", values, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagBetween(Integer value1, Integer value2) {
+            addCriterion("order_email_flag between", value1, value2, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderEmailFlagNotBetween(Integer value1, Integer value2) {
+            addCriterion("order_email_flag not between", value1, value2, "orderEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagIsNull() {
+            addCriterion("order_unpay_email_flag is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagIsNotNull() {
+            addCriterion("order_unpay_email_flag is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagEqualTo(Integer value) {
+            addCriterion("order_unpay_email_flag =", value, "orderUnpayEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagNotEqualTo(Integer value) {
+            addCriterion("order_unpay_email_flag <>", value, "orderUnpayEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagGreaterThan(Integer value) {
+            addCriterion("order_unpay_email_flag >", value, "orderUnpayEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagGreaterThanOrEqualTo(Integer value) {
+            addCriterion("order_unpay_email_flag >=", value, "orderUnpayEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagLessThan(Integer value) {
+            addCriterion("order_unpay_email_flag <", value, "orderUnpayEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagLessThanOrEqualTo(Integer value) {
+            addCriterion("order_unpay_email_flag <=", value, "orderUnpayEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagIn(List<Integer> values) {
+            addCriterion("order_unpay_email_flag in", values, "orderUnpayEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagNotIn(List<Integer> values) {
+            addCriterion("order_unpay_email_flag not in", values, "orderUnpayEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagBetween(Integer value1, Integer value2) {
+            addCriterion("order_unpay_email_flag between", value1, value2, "orderUnpayEmailFlag");
+            return (Criteria) this;
+        }
+
+        public Criteria andOrderUnpayEmailFlagNotBetween(Integer value1, Integer value2) {
+            addCriterion("order_unpay_email_flag not between", value1, value2, "orderUnpayEmailFlag");
             return (Criteria) this;
         }
 

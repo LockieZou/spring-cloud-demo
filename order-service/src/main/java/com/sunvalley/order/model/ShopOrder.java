@@ -1,12 +1,11 @@
 package com.sunvalley.order.model;
 
-
-import com.sunvalley.common.model.BaseModel;
-
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class ShopOrder extends BaseModel {
+public class ShopOrder {
+    private Integer id;
+
     private Integer userId;
 
     private String orderNo;
@@ -31,7 +30,29 @@ public class ShopOrder extends BaseModel {
 
     private Integer orderUnpayEmailFlag;
 
+    private Integer createBy;
 
+    private Date createDate;
+
+    private Integer updateBy;
+
+    private Date updateDate;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 
     public String getOrderNo() {
         return orderNo;
@@ -64,8 +85,6 @@ public class ShopOrder extends BaseModel {
     public void setOrderTotal(BigDecimal orderTotal) {
         this.orderTotal = orderTotal;
     }
-
-
 
     public String getOrderCurrencyCode() {
         return orderCurrencyCode;
@@ -123,11 +142,35 @@ public class ShopOrder extends BaseModel {
         this.orderUnpayEmailFlag = orderUnpayEmailFlag;
     }
 
-    public Integer getUserId() {
-        return userId;
+    public Integer getCreateBy() {
+        return createBy;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setCreateBy(Integer createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public Integer getUpdateBy() {
+        return updateBy;
+    }
+
+    public void setUpdateBy(Integer updateBy) {
+        this.updateBy = updateBy;
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 }

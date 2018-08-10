@@ -9,21 +9,25 @@ public class User {
 
     private String password;
 
+    private String phone;
+
     private String email;
 
     private Integer status;
 
-    private String otheraccount;
+    private String address;
 
-    private Integer otheraccounttype;
+    private String otherAccount;
 
-    private String createby;
+    private Integer otherAccountType;
 
-    private Date createdate;
+    private String createBy;
 
-    private String updateby;
+    private Date createDate;
 
-    private Date updatedate;
+    private String updateBy;
+
+    private Date updateDate;
 
     public Integer getId() {
         return id;
@@ -49,6 +53,14 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
     public String getEmail() {
         return email;
     }
@@ -65,51 +77,59 @@ public class User {
         this.status = status;
     }
 
-    public String getOtheraccount() {
-        return otheraccount;
+    public String getAddress() {
+        return address;
     }
 
-    public void setOtheraccount(String otheraccount) {
-        this.otheraccount = otheraccount == null ? null : otheraccount.trim();
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
     }
 
-    public Integer getOtheraccounttype() {
-        return otheraccounttype;
+    public String getOtherAccount() {
+        return otherAccount;
     }
 
-    public void setOtheraccounttype(Integer otheraccounttype) {
-        this.otheraccounttype = otheraccounttype;
+    public void setOtherAccount(String otherAccount) {
+        this.otherAccount = otherAccount == null ? null : otherAccount.trim();
     }
 
-    public String getCreateby() {
-        return createby;
+    public Integer getOtherAccountType() {
+        return otherAccountType;
     }
 
-    public void setCreateby(String createby) {
-        this.createby = createby == null ? null : createby.trim();
+    public void setOtherAccountType(Integer otherAccountType) {
+        this.otherAccountType = otherAccountType;
     }
 
-    public Date getCreatedate() {
-        return createdate;
+    public String getCreateBy() {
+        return createBy;
     }
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
+    public void setCreateBy(String createBy) {
+        this.createBy = createBy == null ? null : createBy.trim();
     }
 
-    public String getUpdateby() {
-        return updateby;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setUpdateby(String updateby) {
-        this.updateby = updateby == null ? null : updateby.trim();
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
-    public Date getUpdatedate() {
-        return updatedate;
+    public String getUpdateBy() {
+        return updateBy;
     }
 
-    public void setUpdatedate(Date updatedate) {
-        this.updatedate = updatedate;
+    public void setUpdateBy(String updateBy) {
+        this.updateBy = updateBy == null ? null : updateBy.trim();
+    }
+
+    public Date getUpdateDate() {
+        return updateDate;
+    }
+
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
     }
 }
