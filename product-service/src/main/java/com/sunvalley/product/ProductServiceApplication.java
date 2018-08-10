@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableCircuitBreaker
 @EnableFeignClients
 @EnableEurekaClient
-@MapperScan("com.sunvalley.product.mapper.*")
+@MapperScan("com.sunvalley.product.mapper")
 @SpringBootApplication
 public class ProductServiceApplication {
 

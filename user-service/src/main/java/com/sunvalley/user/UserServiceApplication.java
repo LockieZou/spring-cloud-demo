@@ -10,7 +10,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableCircuitBreaker
 @EnableFeignClients
-@MapperScan("com.sunvalley.user.mapper.*")
+@MapperScan("com.sunvalley.user.mapper")
 @EnableDiscoveryClient
 public class UserServiceApplication {
 
