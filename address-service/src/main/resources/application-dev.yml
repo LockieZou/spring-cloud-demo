@@ -25,6 +25,7 @@ spring:
       filter:
         slf4j:
           enabled: true
+          statement-executable-sql-log-enable: true
 
   jackson:
     date-format: "yyyy-MM-dd HH:mm:ss"

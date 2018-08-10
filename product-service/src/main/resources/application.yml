@@ -16,3 +16,9 @@ eureka:
 feign:
   hystrix:
     enabled: true
+logging:
+  level:
+    com:
+      sunvalley:
+        product:
+          mapper: debug
