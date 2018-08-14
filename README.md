@@ -25,14 +25,14 @@ spring cloud demo 项目
 - rabbitmq
 
 #### 服务说明
-- common-service 通用服务，端口号 5005
 - eureka-service 注册中心，端口号 5000
-- order-service 订单服务，端口号 5100
-- product-service 商品服务，端口号 5300
-- user-service 用户服务，端口号 5200
-- address-service 地址服务，端口号 5400
 - gateway-service 网关服务，端口号 5001
 - zipkin-service 服务跟踪治理，端口号 5003
+- common-service 通用服务，端口号 5005
+- order-service 订单服务，端口号 5100
+- user-service 用户服务，端口号 5200
+- product-service 商品服务，端口号 5300
+- address-service 地址服务，端口号 5400
 
 
 
