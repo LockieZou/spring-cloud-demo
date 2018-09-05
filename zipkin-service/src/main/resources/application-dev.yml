@@ -1,0 +1,30 @@
+#zipkin数据库连接
+spring:
+  datasource:
+    name: zipkin
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/spring_cloud_demo?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username : root
+    password : 123456
+    type : com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size : 20
+      min-idle : 1
+      max-active : 500
+      max-wait : 60000
+      time-between-eviction-runs-millis : 60000
+      min-evictable-idle-time-millis : 300000
+      max-evictable-idle-time-millis : 300000
+      validation-query : SELECT 1
+      validation-query-timeout : 30000
+      test-while-idle : true
+      test-on-borrow : false
+      test-on-return : false
+      pool-prepared-statements : false
+      max-pool-prepared-statement-per-connection-size : 20
+      max-open-prepared-statements : 20
+      filters : stat,slf4j
+      filter:
+        slf4j:
+          enabled: true
+          statement-executable-sql-log-enable: true

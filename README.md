@@ -73,7 +73,24 @@ druid是阿里提供的一个管理sql的工具，首先配置引入druid相关j
 后再启动address-service，在浏览器中输入 http://localhost:5400/druid 即可进入到druid监控页面
 输入账号admin，密码123456即可进入。
 
-
+**zipkin**
+Spring Boot 2.0 版本之后，zipkin官方已不推荐自己搭建定制了，而是直接提供了编译好的 jar 包。
+详情可以查看官网：https://zipkin.io/pages/quickstart.html
+<br/>
+可以在终端使用以下命令：
+<br/>
+curl -sSL https://zipkin.io/quickstart.sh | bash -s     <br/>
+java -jar zipkin.jar
+<br/>
+使用 docker 的方式
+<br/>
+docker run -d -p 9411:9411 openzipkin/zipkin
+<br/><br/>
+Windows可以下载zipkin的jar包，地址：https://search.maven.org/remote_content?g=io.zipkin.java&a=zipkin-server&v=LATEST&c=exec
+<br/>
+下载后可以使用 java -jar zipkin.jar命令即可本地启动
+<br/>
+任一方式启动后，访问 http://localhost:9411，可以看到服务端已经搭建成功
 
 ##### 备注
 每个服务都继承了mybatis的代码生成器每个项目都有mybatis-generator.xml文件，需要生成代码的时候只要添加表名然后使用mybatis插件生成代码即可
