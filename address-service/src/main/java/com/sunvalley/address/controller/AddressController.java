@@ -1,5 +1,7 @@
 package com.sunvalley.address.controller;
 
+import com.alibaba.druid.support.json.JSONUtils;
+import com.alibaba.fastjson.JSON;
 import com.sunvalley.common.enums.ApiMsgEnum;
 import com.sunvalley.address.model.MongoShopAddress;
 import com.sunvalley.address.model.ShopAddress;
@@ -13,7 +15,12 @@ import com.sunvalley.common.vo.BaseReturnVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.ListOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.*;
 
 /**
  * 类或方法的功能描述 : 地址接口服务
@@ -39,6 +46,10 @@ public class AddressController {
     RabbitMqSender rabbitMqSender;
     @Autowired
     RedisShopAddressService redisShopAddressService;
+    @Autowired
+    StringRedisTemplate stringRedisTemplate;
+    @Autowired
+    RedisTemplate redisTemplate;
 
 
 
@@ -404,6 +415,116 @@ public class AddressController {
         return new BaseReturnVO(updateAddress);
     }
 
+    /** redis 操作字符串，集合List，set，Hash,zSet **/
+    @PostMapping("/redis/setStringValue")
+    public BaseReturnVO setStringValue(String key, String value) {
+        stringRedisTemplate.opsForValue().set(key, value);
+        return new BaseReturnVO(true);
+    }
+
+    @PostMapping("/redis/getStringValue")
+    public BaseReturnVO getStringValue(String key) {
+        String value = stringRedisTemplate.opsForValue().get(key);
+        Map<String, Object> map = new HashMap<>();
+        map.put("key", key);
+        map.put("value", value);
+        return new BaseReturnVO(map);
+    }
+
+    @PostMapping("/redis/list")
+    public BaseReturnVO list() {
+        /**
+         * 字符集合
+         */
+        List<String> rightList = new ArrayList<>();
+        rightList.add("one");
+        rightList.add("two");
+        rightList.add("three");
+        rightList.add("four");
+
+        List<String> leftList = new ArrayList<>();
+        leftList.add("first");
+        leftList.add("second");
+
+        // 设置list数据
+        redisTemplate.opsForList().rightPush("right-list", rightList);
+        redisTemplate.opsForList().leftPush("left-list", leftList);
+
+        // 取出list数据
+        List<String> rightResult = (List<String>) redisTemplate.opsForList().rightPop("right-list");
+        List<String> leftResult = (List<String>) redisTemplate.opsForList().leftPop("left-list");
+        System.out.println("rightResult: " + rightResult);
+        System.out.println("leftResult: " + leftResult);
+
+        /**
+         * 对象集合
+         */
+        List<ShopAddress> addressList = new ArrayList<>();
+        ShopAddress shopAddress = new ShopAddress();
+        shopAddress.setId(1);
+        shopAddress.setCity("CA");
+        shopAddress.setFirstName("Andy");
+
+        ShopAddress shopAddress2 = new ShopAddress();
+        shopAddress2.setId(2);
+        shopAddress2.setCity("NY");
+        shopAddress2.setFirstName("Ribon");
+        addressList.add(shopAddress);
+        addressList.add(shopAddress2);
+
+        redisTemplate.opsForValue().set("addressList", addressList);
+
+        // 获取对象集合数据
+        List<ShopAddress> resultList = (List<ShopAddress>) redisTemplate.opsForValue().get("addressList");
+        System.out.println(JSON.toJSON(resultList));
+
+        return new BaseReturnVO(true);
+    }
+
+    @PostMapping("/redis/set")
+    public BaseReturnVO set() {
+        Set<String> set = new HashSet<>();
+        set.add("one");
+        set.add("two");
+        set.add("three");
+
+        // 插入
+        redisTemplate.opsForSet().add("set1", set);
+        // 获取set数据
+        Set resultSet = redisTemplate.opsForSet().members("set1");
+        System.out.println("resultSet: " + resultSet);
+
+        return new BaseReturnVO(true);
+    }
+
+    @PostMapping("/redis/map")
+    public BaseReturnVO map() {
+        Map<String, String> map = new HashMap<>();
+        map.put("key1", "value1");
+        map.put("key2", "value2");
+        map.put("key3", "value3");
+        map.put("key4", "value4");
+
+        // 插入
+        redisTemplate.opsForHash().putAll("map1", map);
+
+        // 获取map里面的值
+        Map<String, String> resultMap = redisTemplate.opsForHash().entries("map1");
+        System.out.println("resultMap: " + resultMap);
+
+        List<String> resultMapList = redisTemplate.opsForHash().values("map1");
+        System.out.println("resultMapList: " + resultMapList);
+
+        // 获取key
+        Set<Set> resultMapKey = redisTemplate.opsForHash().keys("map1");
+        System.out.println("resultMapKey: " + resultMapKey);
+
+        // 获取value
+        String value1 = (String) redisTemplate.opsForHash().get("map1", "key1");
+        System.out.println("value1: " + value1);
+
+        return new BaseReturnVO(true);
+    }
 
     /**========================================= redis 操作 ========================================================**/
 
