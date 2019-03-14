@@ -1,6 +1,6 @@
 package com.sunvalley.user.service;
 
-import com.sunvalley.common.util.MD5Util;
+import com.sunvalley.common.util.Md5Util;
 import com.sunvalley.user.config.Constants;
 import com.sunvalley.user.mapper.UserMapper;
 import com.sunvalley.user.model.User;
@@ -53,7 +53,7 @@ public class UserService {
             // 密码加密
             if (StringUtils.isNotEmpty(user.getPassword())) {
                 // 获取加密后的密码
-                String md5Password = MD5Util.getMD5(user.getPassword());
+                String md5Password = Md5Util.getMD5(user.getPassword());
                 if (StringUtils.isNotEmpty(md5Password)) {
                     user.setPassword(md5Password);
                 }
@@ -87,7 +87,7 @@ public class UserService {
             return map;
         }
         // 获取加密后的密码
-        String md5Password = MD5Util.getMD5(user.getPassword());
+        String md5Password = Md5Util.getMD5(user.getPassword());
         UserExample example = new UserExample();
         example.createCriteria().andUserNameEqualTo(user.getUserName()).andPasswordEqualTo(md5Password);
         List<User> list = userMapper.selectByExample(example);
@@ -111,7 +111,7 @@ public class UserService {
             return null;
         }
         // 获取加密后的密码
-        String md5Password = MD5Util.getMD5(password);
+        String md5Password = Md5Util.getMD5(password);
         UserExample example = new UserExample();
         example.createCriteria().andUserNameEqualTo(userName).andPasswordEqualTo(md5Password);
         List<User> list = userMapper.selectByExample(example);
