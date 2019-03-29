@@ -53,7 +53,10 @@ eureka注册中心可以看到两个order-service（idea怎么启动两个服务
 http://localhost:5001/ADDRESS-SERVICE/address/ribbon/getRibbonOrderPort <br/>
 就可以得到如下结果： <br/>
 order-service port：5100 <br/>
-order-service port：4100 <br/>
+order-service port：4100 <br/>  
+
+user-service 增加了AOP切面，通过调用 http://localhost:5001/USER-SERVICE/user/getUserById/1 就可以看到控制台上输出的日志，AOP切面做了简单的日志输入。  
+
 
 **mongodb:**  
 mongodb使用了mongodbAdmin可视化工具，所以首先需要安装这个工具，

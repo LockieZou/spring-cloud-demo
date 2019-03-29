@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 类或方法的功能描述 : 用户接口
  *
@@ -59,6 +62,16 @@ public class UserController {
     }
 
     /**
+     * 根据用户名查询
+     * @param userName
+     * @return
+     */
+    @PostMapping("/getUserByName")
+    public BaseReturnVO getUserByName(String userName) {
+        return new BaseReturnVO(userService.getUserByName(userName));
+    }
+
+    /**
      * 保存用户
      * @param user
      * @return
@@ -75,6 +88,22 @@ public class UserController {
             log.error("保存用户失败");
             return new BaseReturnVO(ApiMsgEnum.INTERNAL_SERVER_ERROR.getResCode(), "保存用户信息失败", e);
         }
+    }
+
+    /**
+     * 测试AOP切面接口
+     * @param exception
+     * @return
+     */
+    @PostMapping("/list/{exception}")
+    public List<User> testAspect(@PathVariable("exception") Boolean exception) {
+        if (exception) {
+            throw new Error("测试抛出异常");
+        }
+        User user = userService.getUserById(1);
+        List<User> list = new ArrayList<>();
+        list.add(user);
+        return list;
     }
 } 
 

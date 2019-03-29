@@ -36,6 +36,19 @@ public class UserService {
         return userMapper.selectByPrimaryKey(id);
     }
 
+    public User getUserByName(String userName) {
+        if (StringUtils.isEmpty(userName)) {
+            return null;
+        }
+        UserExample example = new UserExample();
+        example.createCriteria().andUserNameEqualTo(userName);
+        List<User> userList = userMapper.selectByExample(example);
+        if (null != userList && userList.size() > 0) {
+            return userList.get(0);
+        }
+        return null;
+    }
+
     /**
      * 用户保存和更新
      * @param user

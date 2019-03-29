@@ -19,7 +19,7 @@ public class User {
 
     private String otherAccount;
 
-    private Integer otherAccountType;
+    private String otherAccountType;
 
     private String createBy;
 
@@ -93,12 +93,12 @@ public class User {
         this.otherAccount = otherAccount == null ? null : otherAccount.trim();
     }
 
-    public Integer getOtherAccountType() {
+    public String getOtherAccountType() {
         return otherAccountType;
     }
 
-    public void setOtherAccountType(Integer otherAccountType) {
-        this.otherAccountType = otherAccountType;
+    public void setOtherAccountType(String otherAccountType) {
+        this.otherAccountType = otherAccountType == null ? null : otherAccountType.trim();
     }
 
     public String getCreateBy() {

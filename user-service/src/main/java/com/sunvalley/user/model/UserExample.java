@@ -655,52 +655,62 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeEqualTo(Integer value) {
+        public Criteria andOtherAccountTypeEqualTo(String value) {
             addCriterion("other_account_type =", value, "otherAccountType");
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeNotEqualTo(Integer value) {
+        public Criteria andOtherAccountTypeNotEqualTo(String value) {
             addCriterion("other_account_type <>", value, "otherAccountType");
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeGreaterThan(Integer value) {
+        public Criteria andOtherAccountTypeGreaterThan(String value) {
             addCriterion("other_account_type >", value, "otherAccountType");
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeGreaterThanOrEqualTo(Integer value) {
+        public Criteria andOtherAccountTypeGreaterThanOrEqualTo(String value) {
             addCriterion("other_account_type >=", value, "otherAccountType");
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeLessThan(Integer value) {
+        public Criteria andOtherAccountTypeLessThan(String value) {
             addCriterion("other_account_type <", value, "otherAccountType");
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeLessThanOrEqualTo(Integer value) {
+        public Criteria andOtherAccountTypeLessThanOrEqualTo(String value) {
             addCriterion("other_account_type <=", value, "otherAccountType");
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeIn(List<Integer> values) {
+        public Criteria andOtherAccountTypeLike(String value) {
+            addCriterion("other_account_type like", value, "otherAccountType");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherAccountTypeNotLike(String value) {
+            addCriterion("other_account_type not like", value, "otherAccountType");
+            return (Criteria) this;
+        }
+
+        public Criteria andOtherAccountTypeIn(List<String> values) {
             addCriterion("other_account_type in", values, "otherAccountType");
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeNotIn(List<Integer> values) {
+        public Criteria andOtherAccountTypeNotIn(List<String> values) {
             addCriterion("other_account_type not in", values, "otherAccountType");
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeBetween(Integer value1, Integer value2) {
+        public Criteria andOtherAccountTypeBetween(String value1, String value2) {
             addCriterion("other_account_type between", value1, value2, "otherAccountType");
             return (Criteria) this;
         }
 
-        public Criteria andOtherAccountTypeNotBetween(Integer value1, Integer value2) {
+        public Criteria andOtherAccountTypeNotBetween(String value1, String value2) {
             addCriterion("other_account_type not between", value1, value2, "otherAccountType");
             return (Criteria) this;
         }
