@@ -1,16 +1,25 @@
 package com.sunvalley.user.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.sunvalley.common.enums.ApiMsgEnum;
 import com.sunvalley.common.vo.BaseReturnVO;
+import com.sunvalley.user.config.RabbitMqConfig;
 import com.sunvalley.user.model.User;
 import com.sunvalley.user.remote.OrderRemote;
 import com.sunvalley.user.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.amqp.core.Message;
+import org.springframework.amqp.core.MessageBuilder;
+import org.springframework.amqp.core.MessageDeliveryMode;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -29,6 +38,13 @@ public class UserController {
     String port;
     @Autowired
     UserService userService;
+
+    @Autowired
+    private RabbitTemplate rabbitTemplate;
+    @Value("${log.user.exchange.name}")
+    private String exchangeName;
+    @Value("${log.user.routing.key.name}")
+    private String routingKey;
 
     /**
      * 获取用户服务的端口
@@ -104,6 +120,35 @@ public class UserController {
         List<User> list = new ArrayList<>();
         list.add(user);
         return list;
+    }
+
+    /***********************    RabbitMq 测试        *********************/
+
+    /**
+     * 用户登录后发登录mq消息，可用于登录日志记录
+     * @param userName 默认 root
+     * @param password 默认 123456
+     * @return
+     */
+    @PostMapping("/login")
+    public BaseReturnVO login(@RequestParam("userName") String userName, @RequestParam("password") String password) {
+        if (StringUtils.isNotEmpty(userName) && StringUtils.isNotEmpty(password)) {
+            if ("root".equals(userName) && "123456".equals(password)) {
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("userName", userName);
+                jsonObject.put("loginTime", new Date());
+
+                rabbitTemplate.setMessageConverter(new Jackson2JsonMessageConverter());
+                rabbitTemplate.setExchange(exchangeName);
+                rabbitTemplate.setRoutingKey(routingKey);
+
+                Message message = MessageBuilder.withBody(jsonObject.toJSONString().getBytes()).setDeliveryMode(MessageDeliveryMode.PERSISTENT).build();
+                rabbitTemplate.convertAndSend(message);
+            }
+        } else {
+            return new BaseReturnVO("用户名密码为空");
+        }
+        return new BaseReturnVO("login success!");
     }
 } 
 
