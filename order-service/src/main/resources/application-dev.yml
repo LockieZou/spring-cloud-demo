@@ -42,7 +42,7 @@ spring:
   rabbitmq:
     host: localhost
     port: 5672
-    virtual-host: /vhost_db0
+    virtual-host: /
     username: guest
     password: guest
     publisher-confirms: true      # P端收到回调，确认消息接收
