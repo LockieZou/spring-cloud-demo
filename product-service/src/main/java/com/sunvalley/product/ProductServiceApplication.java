@@ -1,6 +1,8 @@
 package com.sunvalley.product;
 
 import org.mybatis.spring.annotation.MapperScan;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -16,5 +18,9 @@ public class ProductServiceApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ProductServiceApplication.class, args);
+		Logger logger = LoggerFactory.getLogger(ProductServiceApplication.class);
+		logger.info("*****************");
+		logger.info("**** 启动成功 ****");
+		logger.info("*****************");
 	}
 }
