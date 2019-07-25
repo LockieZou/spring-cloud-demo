@@ -1,10 +1,10 @@
 package com.sunvalley.order.controller;
 
-import com.sunvalley.common.enums.ApiMsgEnum;
+import com.lockie.common.enums.ApiMsgEnum;
 import com.sunvalley.order.model.ShopOrder;
 import com.sunvalley.order.modelEX.ShopOrderEX;
 import com.sunvalley.order.service.OrderService;
-import com.sunvalley.common.vo.BaseReturnVO;
+import com.lockie.common.vo.BaseReturnVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

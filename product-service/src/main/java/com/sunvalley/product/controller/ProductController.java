@@ -1,6 +1,6 @@
 package com.sunvalley.product.controller;
 
-import com.sunvalley.common.vo.BaseReturnVO;
+import com.lockie.common.vo.BaseReturnVO;
 import com.sunvalley.product.model.ShopProduct;
 import com.sunvalley.product.service.ShopProductService;
 import lombok.extern.slf4j.Slf4j;

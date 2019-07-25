@@ -1,6 +1,6 @@
 package com.sunvalley.user.service;
 
-import com.sunvalley.common.util.Md5Util;
+import com.lockie.common.util.Md5Util;
 import com.sunvalley.user.config.Constants;
 import com.sunvalley.user.mapper.UserMapper;
 import com.sunvalley.user.model.User;

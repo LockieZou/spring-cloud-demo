@@ -1,7 +1,7 @@
 package com.sunvalley.order.model;
 
 
-import com.sunvalley.common.model.BaseModel;
+import com.lockie.common.model.BaseModel;
 
 import java.math.BigDecimal;
 

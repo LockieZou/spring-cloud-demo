@@ -1,6 +1,6 @@
 package com.sunvalley.address.model;
 
-import com.sunvalley.common.model.BaseModel;
+import com.lockie.common.model.BaseModel;
 
 public class ShopAddress extends BaseModel {
     private Integer orderId;

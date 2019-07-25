@@ -1,8 +1,7 @@
 package com.sunvalley.address.controller;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import com.alibaba.fastjson.JSON;
-import com.sunvalley.common.enums.ApiMsgEnum;
+import com.lockie.common.enums.ApiMsgEnum;
 import com.sunvalley.address.model.MongoShopAddress;
 import com.sunvalley.address.model.ShopAddress;
 import com.sunvalley.address.remote.OrderClient;
@@ -11,11 +10,10 @@ import com.sunvalley.address.service.RabbitMqSender;
 import com.sunvalley.address.service.MongoDBShopAddressService;
 import com.sunvalley.address.service.RedisShopAddressService;
 import com.sunvalley.address.service.ShopAddressService;
-import com.sunvalley.common.vo.BaseReturnVO;
+import com.lockie.common.vo.BaseReturnVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;

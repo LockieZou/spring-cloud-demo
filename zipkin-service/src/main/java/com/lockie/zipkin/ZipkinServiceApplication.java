@@ -1,4 +1,4 @@
-package com.sunvalley.zipkin;
+package com.lockie.zipkin;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

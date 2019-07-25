@@ -1,6 +1,6 @@
 package com.sunvalley.address.remote;
 
-import com.sunvalley.common.vo.BaseReturnVO;
+import com.lockie.common.vo.BaseReturnVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;

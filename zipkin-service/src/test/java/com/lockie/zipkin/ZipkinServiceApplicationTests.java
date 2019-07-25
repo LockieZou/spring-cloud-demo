@@ -1,4 +1,4 @@
-package com.sunvalley.demo;
+package com.lockie.zipkin;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

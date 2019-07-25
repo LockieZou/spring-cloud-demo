@@ -1,6 +1,6 @@
 package com.sunvalley.order.controller;
 
-import com.sunvalley.common.vo.BaseReturnVO;
+import com.lockie.common.vo.BaseReturnVO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

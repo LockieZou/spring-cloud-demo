@@ -1,9 +1,8 @@
 package com.sunvalley.user.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.sunvalley.common.enums.ApiMsgEnum;
-import com.sunvalley.common.vo.BaseReturnVO;
-import com.sunvalley.user.config.RabbitMqConfig;
+import com.lockie.common.enums.ApiMsgEnum;
+import com.lockie.common.vo.BaseReturnVO;
 import com.sunvalley.user.model.User;
 import com.sunvalley.user.remote.OrderRemote;
 import com.sunvalley.user.service.UserService;
