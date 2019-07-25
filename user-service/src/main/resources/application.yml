@@ -26,6 +26,6 @@ feign:
 logging:
   level:
     com:
-      sunvalley:
+      lockie:
         user:
           mapper: debug

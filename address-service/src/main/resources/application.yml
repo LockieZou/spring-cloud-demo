@@ -20,7 +20,7 @@ feign:
 logging:
   level:
     com:
-      sunvalley:
+      lockie:
         address:
           mapper: debug
 
