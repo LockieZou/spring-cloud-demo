@@ -1,6 +1,6 @@
-package com.sunvalley.common.Exception;
+package com.lockie.common.Exception;
 
-import com.sunvalley.common.enums.ApiMsgEnum;
+import com.lockie.common.enums.ApiMsgEnum;
 
 /**
  * 类或方法的功能描述 :TODO

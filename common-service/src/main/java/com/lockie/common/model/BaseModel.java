@@ -1,4 +1,4 @@
-package com.sunvalley.common.model;
+package com.lockie.common.model;
 
 import java.io.Serializable;
 import java.util.Date;

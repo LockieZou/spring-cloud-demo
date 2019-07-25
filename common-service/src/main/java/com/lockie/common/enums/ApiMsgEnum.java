@@ -1,4 +1,4 @@
-package com.sunvalley.common.enums;
+package com.lockie.common.enums;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

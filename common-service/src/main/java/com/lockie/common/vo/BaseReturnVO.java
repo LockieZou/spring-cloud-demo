@@ -1,7 +1,7 @@
-package com.sunvalley.common.vo;
+package com.lockie.common.vo;
 
-import com.sunvalley.common.Exception.CommonException;
-import com.sunvalley.common.enums.ApiMsgEnum;
+import com.lockie.common.Exception.CommonException;
+import com.lockie.common.enums.ApiMsgEnum;
 
 import java.io.Serializable;
 

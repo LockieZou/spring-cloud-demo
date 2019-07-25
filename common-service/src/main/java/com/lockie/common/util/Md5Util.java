@@ -1,4 +1,4 @@
-package com.sunvalley.common.util;
+package com.lockie.common.util;
 
 import java.security.MessageDigest;
 
