@@ -1,4 +1,4 @@
-package com.sunvalley.demo;
+package com.lockie.product;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -1,4 +1,4 @@
-package com.sunvalley.product.controller;
+package com.lockie.product.controller;
 
 import com.lockie.common.vo.BaseReturnVO;
 import org.springframework.web.bind.annotation.RequestMapping;

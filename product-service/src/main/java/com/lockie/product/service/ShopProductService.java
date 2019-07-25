@@ -1,7 +1,7 @@
-package com.sunvalley.product.service;
+package com.lockie.product.service;
 
-import com.sunvalley.product.mapper.ShopProductMapper;
-import com.sunvalley.product.model.ShopProduct;
+import com.lockie.product.mapper.ShopProductMapper;
+import com.lockie.product.model.ShopProduct;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

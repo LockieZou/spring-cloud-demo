@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sunvalley.product.mapper.ShopProductMapper">
-  <resultMap id="BaseResultMap" type="com.sunvalley.product.model.ShopProduct">
+<mapper namespace="com.lockie.product.mapper.ShopProductMapper">
+  <resultMap id="BaseResultMap" type="com.lockie.product.model.ShopProduct">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="product_name" jdbcType="VARCHAR" property="productName" />
     <result column="short_name" jdbcType="VARCHAR" property="shortName" />
@@ -19,7 +19,7 @@
     <result column="update_by" jdbcType="INTEGER" property="updateBy" />
     <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
   </resultMap>
-  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.sunvalley.product.model.ShopProduct">
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.lockie.product.model.ShopProduct">
     <result column="product_desc" jdbcType="LONGVARCHAR" property="productDesc" />
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -87,7 +87,7 @@
   <sql id="Blob_Column_List">
     product_desc
   </sql>
-  <select id="selectByExampleWithBLOBs" parameterType="com.sunvalley.product.model.ShopProductExample" resultMap="ResultMapWithBLOBs">
+  <select id="selectByExampleWithBLOBs" parameterType="com.lockie.product.model.ShopProductExample" resultMap="ResultMapWithBLOBs">
     select
     <if test="distinct">
       distinct
@@ -104,7 +104,7 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" parameterType="com.sunvalley.product.model.ShopProductExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lockie.product.model.ShopProductExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -131,13 +131,13 @@
     delete from shop_product
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.sunvalley.product.model.ShopProductExample">
+  <delete id="deleteByExample" parameterType="com.lockie.product.model.ShopProductExample">
     delete from shop_product
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sunvalley.product.model.ShopProduct">
+  <insert id="insert" parameterType="com.lockie.product.model.ShopProduct">
     insert into shop_product (id, product_name, short_name, 
       product_color, img_url, product_url, 
       sku, asin, model, country_code, 
@@ -151,7 +151,7 @@
       #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP}, 
       #{productDesc,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.sunvalley.product.model.ShopProduct">
+  <insert id="insertSelective" parameterType="com.lockie.product.model.ShopProduct">
     insert into shop_product
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -260,7 +260,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sunvalley.product.model.ShopProductExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lockie.product.model.ShopProductExample" resultType="java.lang.Long">
     select count(*) from shop_product
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -370,7 +370,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sunvalley.product.model.ShopProduct">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lockie.product.model.ShopProduct">
     update shop_product
     <set>
       <if test="productName != null">
@@ -424,7 +424,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.sunvalley.product.model.ShopProduct">
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.lockie.product.model.ShopProduct">
     update shop_product
     set product_name = #{productName,jdbcType=VARCHAR},
       short_name = #{shortName,jdbcType=VARCHAR},
@@ -444,7 +444,7 @@
       product_desc = #{productDesc,jdbcType=LONGVARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sunvalley.product.model.ShopProduct">
+  <update id="updateByPrimaryKey" parameterType="com.lockie.product.model.ShopProduct">
     update shop_product
     set product_name = #{productName,jdbcType=VARCHAR},
       short_name = #{shortName,jdbcType=VARCHAR},

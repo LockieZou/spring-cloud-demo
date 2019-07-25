@@ -1,4 +1,4 @@
-package com.sunvalley.product.model;
+package com.lockie.product.model;
 
 import java.util.ArrayList;
 import java.util.Date;

@@ -1,8 +1,8 @@
-package com.sunvalley.product.controller;
+package com.lockie.product.controller;
 
 import com.lockie.common.vo.BaseReturnVO;
-import com.sunvalley.product.model.ShopProduct;
-import com.sunvalley.product.service.ShopProductService;
+import com.lockie.product.model.ShopProduct;
+import com.lockie.product.service.ShopProductService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

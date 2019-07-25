@@ -1,7 +1,7 @@
-package com.sunvalley.product.mapper;
+package com.lockie.product.mapper;
 
-import com.sunvalley.product.model.ShopProduct;
-import com.sunvalley.product.model.ShopProductExample;
+import com.lockie.product.model.ShopProduct;
+import com.lockie.product.model.ShopProductExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

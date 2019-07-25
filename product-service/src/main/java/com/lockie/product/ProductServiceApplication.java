@@ -1,4 +1,4 @@
-package com.sunvalley.product;
+package com.lockie.product;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableCircuitBreaker
 @EnableFeignClients
 @EnableEurekaClient
-@MapperScan("com.sunvalley.product.mapper")
+@MapperScan("com.lockie.product.mapper")
 @SpringBootApplication
 public class ProductServiceApplication {
 
