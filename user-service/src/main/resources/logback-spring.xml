@@ -151,7 +151,7 @@
 
 
     <!-- project default level -->
-    <logger name="com.sunvalley"/>
+    <logger name="com.lockie"/>
 
     <logger name="druid.sql.Statement" level="DEBUG"/>
 
