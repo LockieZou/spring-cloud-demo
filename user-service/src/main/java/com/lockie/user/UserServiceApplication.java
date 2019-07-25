@@ -1,4 +1,4 @@
-package com.sunvalley.user;
+package com.lockie.user;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.slf4j.Logger;
@@ -12,7 +12,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @SpringBootApplication
 @EnableCircuitBreaker
 @EnableFeignClients
-@MapperScan("com.sunvalley.user.mapper")
+@MapperScan("com.lockie.user.mapper")
 @EnableDiscoveryClient
 public class UserServiceApplication {
 

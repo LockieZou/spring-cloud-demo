@@ -1,11 +1,11 @@
-package com.sunvalley.user.controller;
+package com.lockie.user.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.lockie.common.enums.ApiMsgEnum;
 import com.lockie.common.vo.BaseReturnVO;
-import com.sunvalley.user.model.User;
-import com.sunvalley.user.remote.OrderRemote;
-import com.sunvalley.user.service.UserService;
+import com.lockie.user.service.UserService;
+import com.lockie.user.model.User;
+import com.lockie.user.remote.OrderRemote;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.amqp.core.Message;

@@ -1,4 +1,4 @@
-package com.sunvalley.user.common;
+package com.lockie.user.common;
 
 import com.alibaba.fastjson.JSONObject;
 import org.aspectj.lang.JoinPoint;
@@ -30,7 +30,7 @@ public class HttpAspect {
      * 拦截 UserController 下面 userList 方法里的任何参数 (..) 表示拦截任何参数
      * 写法：@Before("execution(public * com.angelo.controller.UserController.userList(..))")
      */
-    @Pointcut("execution(public * com.sunvalley.user.controller.UserController.*(..))")
+    @Pointcut("execution(public * com.lockie.user.controller.UserController.*(..))")
     public void log() {
     }
 

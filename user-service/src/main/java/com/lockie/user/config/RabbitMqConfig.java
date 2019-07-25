@@ -1,4 +1,4 @@
-package com.sunvalley.user.config;
+package com.lockie.user.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

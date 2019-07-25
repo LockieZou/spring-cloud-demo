@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sunvalley.user.mapper.UserMapper">
-  <resultMap id="BaseResultMap" type="com.sunvalley.user.model.User">
+<mapper namespace="com.lockie.user.mapper.UserMapper">
+  <resultMap id="BaseResultMap" type="com.lockie.user.model.User">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -78,7 +78,7 @@
     id, user_name, password, phone, email, status, address, other_account, other_account_type, 
     create_by, create_date, update_by, update_date
   </sql>
-  <select id="selectByExample" parameterType="com.sunvalley.user.model.UserExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.lockie.user.model.UserExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -103,13 +103,13 @@
     delete from sys_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.sunvalley.user.model.UserExample">
+  <delete id="deleteByExample" parameterType="com.lockie.user.model.UserExample">
     delete from sys_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.sunvalley.user.model.User">
+  <insert id="insert" parameterType="com.lockie.user.model.User">
     insert into sys_user (id, user_name, password, 
       phone, email, status, 
       address, other_account, other_account_type, 
@@ -121,7 +121,7 @@
       #{createBy,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, #{updateBy,jdbcType=VARCHAR}, 
       #{updateDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.sunvalley.user.model.User">
+  <insert id="insertSelective" parameterType="com.lockie.user.model.User">
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -206,7 +206,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.sunvalley.user.model.UserExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.lockie.user.model.UserExample" resultType="java.lang.Long">
     select count(*) from sys_user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -278,7 +278,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.sunvalley.user.model.User">
+  <update id="updateByPrimaryKeySelective" parameterType="com.lockie.user.model.User">
     update sys_user
     <set>
       <if test="userName != null">
@@ -320,7 +320,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.sunvalley.user.model.User">
+  <update id="updateByPrimaryKey" parameterType="com.lockie.user.model.User">
     update sys_user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},

@@ -1,7 +1,7 @@
-package com.sunvalley.user.mapper;
+package com.lockie.user.mapper;
 
-import com.sunvalley.user.model.User;
-import com.sunvalley.user.model.UserExample;
+import com.lockie.user.model.User;
+import com.lockie.user.model.UserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

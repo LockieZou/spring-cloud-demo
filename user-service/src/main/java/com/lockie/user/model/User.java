@@ -1,4 +1,4 @@
-package com.sunvalley.user.model;
+package com.lockie.user.model;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package com.sunvalley.user.remote;
+package com.lockie.user.remote;
 
 import org.springframework.stereotype.Component;
 

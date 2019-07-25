@@ -1,10 +1,10 @@
-package com.sunvalley.user.service;
+package com.lockie.user.service;
 
 import com.lockie.common.util.Md5Util;
-import com.sunvalley.user.config.Constants;
-import com.sunvalley.user.mapper.UserMapper;
-import com.sunvalley.user.model.User;
-import com.sunvalley.user.model.UserExample;
+import com.lockie.user.config.Constants;
+import com.lockie.user.mapper.UserMapper;
+import com.lockie.user.model.User;
+import com.lockie.user.model.UserExample;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

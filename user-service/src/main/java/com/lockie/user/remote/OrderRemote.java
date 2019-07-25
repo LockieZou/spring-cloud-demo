@@ -1,4 +1,4 @@
-package com.sunvalley.user.remote;
+package com.lockie.user.remote;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

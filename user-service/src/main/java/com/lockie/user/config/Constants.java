@@ -1,4 +1,4 @@
-package com.sunvalley.user.config;
+package com.lockie.user.config;
 
 /**
  * 类或方法的功能描述 : 常量类
