@@ -152,10 +152,6 @@
 
     <!-- project default level -->
     <logger name="com.sunvalley"/>
-    
-    <!--<logger name="com.sunvalley.erp.product.dao" level="DEBUG"/>-->
-    <!---->
-    <!--<logger name="com.sunvalley.erp.product.daoEX" level="DEBUG"/>-->
 
     <logger name="druid.sql.Statement" level="DEBUG"/>
 
