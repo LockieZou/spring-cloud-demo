@@ -1,4 +1,4 @@
-package com.sunvalley.eureka;
+package com.lockie.eureka;
 
 
 import org.slf4j.Logger;

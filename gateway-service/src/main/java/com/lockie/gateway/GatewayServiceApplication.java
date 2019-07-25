@@ -1,4 +1,4 @@
-package com.sunvalley.gateway;
+package com.lockie.gateway;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
