@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: quartz-service
+  profiles:
+    active: dev
+
+server:
+  port: 5007
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:5000/zipkin/
+
+
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    com:
+      lockie:
+        product:
+          mapper: debug

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+    <jmxConfigurator/>
+    <!-- 彩色日志 -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+    <property name="CONSOLE_LOG_PATTERN" value="${CONSOLE_LOG_PATTERN:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-36.36logger{36}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}" />
+
+    <springProperty scope="context" name="logLevel" source="logging.level"/>
+    <!--<springProperty scope="context" name="logPath" source="log.path" />-->
+    <springProperty scope="context" name="appName" source="spring.application.name"  />
+
+    <contextName>${appName}</contextName>
+
+    <property name="logPath" value="logs"/>
+
+
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--<pattern>%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+            <pattern>${CONSOLE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 时间滚动输出 level为 ERROR 日志 -->
+    <appender name="file-error" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/error.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/error.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>7</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!--日志文件大小限制在100MB以内，否则就触发滚动-->
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+            <!-- 此处设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 时间滚动输出 level为 WARN 日志 -->
+    <appender name="file-warn" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/warn.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>WARN</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/warn.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>7</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!--日志文件大小限制在100MB以内，否则就触发滚动-->
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+            <!-- 此处设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 时间滚动输出 level为 INFO 日志 -->
+    <appender name="file-info" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/info.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/info.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>7</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!--日志文件大小限制在100MB以内，否则就触发滚动-->
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+            <!-- 此处设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- 时间滚动输出 level为 DEBUG 日志 -->
+    <appender name="file-debug" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/debug.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/debug.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>7</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!--日志文件大小限制在100MB以内，否则就触发滚动-->
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+            <!-- 此处设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <appender name="file-trace" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/trace.log</file>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>TRACE</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/trace.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!--日志文件保留天数-->
+            <maxHistory>7</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!--日志文件大小限制在100MB以内，否则就触发滚动-->
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <encoder>
+            <!--格式化输出：%d表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度%msg：日志消息，%n是换行符-->
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] %logger{36} - %msg%n</pattern>
+            <!-- 此处设置字符集 -->
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+
+
+    <!-- project default level -->
+    <logger name="com.lockie"/>
+    
+    <logger name="druid.sql.Statement" level="DEBUG"/>
+
+    <logger name="org.springframework.jdbc" level="ERROR" />
+    <!--log4jdbc -->
+    <logger name="jdbc.sqltiming" level="ERROR"/>
+
+    <logger name="org.springframework.jmx.export.annotation.AnnotationMBeanExporter" level="ERROR"/>
+
+    <logger name="org.springframework.boot.actuate.endpoint.jmx.EndpointMBeanExporter" level="ERROR" />
+
+    <logger name="org.springframework.boot.web.servlet.FilterRegistrationBean" level="ERROR" />
+
+    <logger name="org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker" level="ERROR"/>
+
+    <logger name="org.springframework.core.env.PropertySourcesPropertyResolver" level="ERROR"/>
+
+    <logger name="org.springframework.beans.factory.support.DefaultListableBeanFactory" level="ERROR"/>
+
+    <logger name="org.springframework.context.annotation.ConfigurationClassPostProcessor" level="ERROR"/>
+
+    <logger name="org.springframework.core.env.MutablePropertySources" level="ERROR"/>
+
+    <logger name="org.springframework.boot.web.filter.OrderedHiddenHttpMethodFilter" level="ERROR"/>
+
+    <logger name="org.springframework.boot.actuate.endpoint.mvc.EndpointHandlerMapping" level="ERROR"/>
+
+    <logger name="com.netflix.discovery.DiscoveryClient" level="ERROR"/>
+
+    <logger name="com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver" level="ERROR"/>
+
+    <logger name="org.springframework.cloud.config.client.ConfigServicePropertySourceLocator" level="ERROR"/>
+
+    <logger name="org.springframework.integration.monitor.IntegrationMBeanExporter" level="ERROR" />
+
+    <logger name="com.netflix.discovery.provider.DiscoveryJerseyProvider" level="ERROR"/>
+
+    <logger name=" org.springframework.context.annotation.ConfigurationClassEnhancer" level="ERROR"/>
+
+    <logger name="org.springframework.web.context.ContextLoader" level="ERROR"/>
+
+    <logger name="org.apache.zookeeper" level="ERROR"/>
+
+    <logger name="org.apache.catalina" level="ERROR"/>
+
+    <logger name="org.I0Itec.zkclient" level="ERROR"/>
+
+    <logger name="com.alibaba.dubbo" level="ERROR"/>
+
+    <logger name="com.mchange"  level="ERROR" />
+    <!-- log detail configuration -->
+    <logger name="org.acegisecurity" level="ERROR"/>
+
+
+    <root level="${logLevel}">
+        <appender-ref ref="console"/>
+        <appender-ref ref="file-trace"/>
+        <appender-ref ref="file-debug"/>
+        <appender-ref ref="file-info"/>
+        <appender-ref ref="file-warn"/>
+        <appender-ref ref="file-error"/>
+    </root>
+</configuration>

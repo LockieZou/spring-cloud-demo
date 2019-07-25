@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lockie.quartz.mapper.SysTaskMapperEx" >
+  <select id="findEnableTask" parameterType="int" resultType="com.lockie.quartz.model.SysTask">
+    select id id,
+      task_name taskName,
+      task_remark taskRemark,
+      job_class jobClass,
+      cron_expression cronExpression,
+      is_enable isEnable,
+      status status,
+      created_time createdTime,
+      updated_time updatedTime
+    from sys_task
+    where 1=1
+    and is_enable = #{isEnable}
+  </select>
+
+</mapper>

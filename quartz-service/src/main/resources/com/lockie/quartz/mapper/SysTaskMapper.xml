@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.lockie.quartz.mapper.SysTaskMapper" >
+  <resultMap id="BaseResultMap" type="com.lockie.quartz.model.SysTask" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="task_name" property="taskName" jdbcType="VARCHAR" />
+    <result column="task_remark" property="taskRemark" jdbcType="VARCHAR" />
+    <result column="job_class" property="jobClass" jdbcType="VARCHAR" />
+    <result column="cron_expression" property="cronExpression" jdbcType="VARCHAR" />
+    <result column="is_enable" property="isEnable" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="created_time" property="createdTime" jdbcType="TIMESTAMP" />
+    <result column="updated_time" property="updatedTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, task_name, task_remark, job_class, cron_expression, is_enable, status, created_time, 
+    updated_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from sys_task
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from sys_task
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.lockie.quartz.model.SysTask" >
+    insert into sys_task (id, task_name, task_remark, 
+      job_class, cron_expression, is_enable, 
+      status, created_time, updated_time
+      )
+    values (#{id,jdbcType=INTEGER}, #{taskName,jdbcType=VARCHAR}, #{taskRemark,jdbcType=VARCHAR}, 
+      #{jobClass,jdbcType=VARCHAR}, #{cronExpression,jdbcType=VARCHAR}, #{isEnable,jdbcType=INTEGER}, 
+      #{status,jdbcType=VARCHAR}, #{createdTime,jdbcType=TIMESTAMP}, #{updatedTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.lockie.quartz.model.SysTask" >
+    insert into sys_task
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="taskName != null" >
+        task_name,
+      </if>
+      <if test="taskRemark != null" >
+        task_remark,
+      </if>
+      <if test="jobClass != null" >
+        job_class,
+      </if>
+      <if test="cronExpression != null" >
+        cron_expression,
+      </if>
+      <if test="isEnable != null" >
+        is_enable,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createdTime != null" >
+        created_time,
+      </if>
+      <if test="updatedTime != null" >
+        updated_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="taskName != null" >
+        #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskRemark != null" >
+        #{taskRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="jobClass != null" >
+        #{jobClass,jdbcType=VARCHAR},
+      </if>
+      <if test="cronExpression != null" >
+        #{cronExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null" >
+        #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null" >
+        #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lockie.quartz.model.SysTask" >
+    update sys_task
+    <set >
+      <if test="taskName != null" >
+        task_name = #{taskName,jdbcType=VARCHAR},
+      </if>
+      <if test="taskRemark != null" >
+        task_remark = #{taskRemark,jdbcType=VARCHAR},
+      </if>
+      <if test="jobClass != null" >
+        job_class = #{jobClass,jdbcType=VARCHAR},
+      </if>
+      <if test="cronExpression != null" >
+        cron_expression = #{cronExpression,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null" >
+        is_enable = #{isEnable,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createdTime != null" >
+        created_time = #{createdTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedTime != null" >
+        updated_time = #{updatedTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lockie.quartz.model.SysTask" >
+    update sys_task
+    set task_name = #{taskName,jdbcType=VARCHAR},
+      task_remark = #{taskRemark,jdbcType=VARCHAR},
+      job_class = #{jobClass,jdbcType=VARCHAR},
+      cron_expression = #{cronExpression,jdbcType=VARCHAR},
+      is_enable = #{isEnable,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      created_time = #{createdTime,jdbcType=TIMESTAMP},
+      updated_time = #{updatedTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="findEnableTask" parameterType="int" resultType="com.lockie.quartz.model.SysTask">
+    select id id,
+      task_name taskName,
+      task_remark taskRemark,
+      job_class jobClass,
+      cron_expression cronExpression,
+      is_enable isEnable,
+      status status,
+      created_time createdTime,
+      updated_time updatedTime
+    from sys_task
+    where 1=1
+    and is_enable = #{isEnable}
+  </select>
+</mapper>

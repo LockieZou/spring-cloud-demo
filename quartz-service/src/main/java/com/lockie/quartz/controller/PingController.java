@@ -1,4 +1,4 @@
-package com.sunvalley.quartz.controller;
+package com.lockie.quartz.controller;
 
 import com.lockie.common.vo.BaseReturnVO;
 import org.springframework.web.bind.annotation.RequestMapping;

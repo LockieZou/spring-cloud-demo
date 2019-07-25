@@ -1,0 +1,87 @@
+spring:
+  datasource:
+    driver-class-name : com.mysql.jdbc.Driver
+    url : jdbc:mysql://localhost:3306/spring_cloud_demo?useUnicode=true&characterEncoding=utf8&jdbcCompliantTruncation=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&autoReconnect=true
+    username : root
+    password : 123456
+    type : com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size : 20
+      min-idle : 1
+      max-active : 500
+      max-wait : 60000
+      time-between-eviction-runs-millis : 60000
+      #      min-evictable-idle-time-millis : 300000
+      #      max-evictable-idle-time-millis : 300000
+      validation-query : SELECT 1
+      validation-query-timeout : 30000
+      test-while-idle : true
+      test-on-borrow : false
+      test-on-return : false
+      pool-prepared-statements : false
+      max-pool-prepared-statement-per-connection-size : 20
+      max-open-prepared-statements : 20
+      filters : stat,slf4j
+      filter:
+        slf4j:
+          enabled: true
+          statement-executable-sql-log-enable: true
+
+  jackson:
+    date-format: "yyyy-MM-dd HH:mm:ss"
+    time-zone: "GMT+08"
+    default-property-inclusion: non_null
+  http:
+    encoding:
+      force: true
+      charset: utf-8
+      enabled: true
+  mvc:
+    throw-exception-if-no-handler-found: true #出现 404 错误时, 直接抛出异常
+  resources:
+    add-mappings: false   #不要为我们工程中的资源文件建立映射
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      #      username: root
+      #      password: 123456
+      database: db0
+      authentication-database: local
+  rabbitmq:
+    host: localhost
+    port: 5672
+    virtual-host: /
+    username: guest
+    password: guest
+    publisher-confirms: true      # 消息发送到交换机确认机制，是否确认回调
+    publisher-returns: true       # 消息发送到交换机确认机制，是否返回回调
+    template:
+      mandatory: true
+    listener:
+      simple:
+        concurrency: 1            # 指定最小消费者数量
+        max-concurrency: 20       # 指定最大消费者数量
+        retry:
+          enabled: true           # 是否重试
+          max-attempts: 3         # 重试次数
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+    password: 123456
+    timeout: 3600
+    jedis:
+      pool:
+        max-active: 100         #连接池最大连接数，负数表示没有限制
+        max-wait: -1            #连接池最大阻塞等待时间
+        max-idle: 20             #连接池最大空闲数
+        min-idle: 5              #连接池最小空闲数
+      shutdown-timeout: 3000     #jedis连接超时
+
+mybatis:
+  configuration:
+    auto-mapping-unknown-column-behavior: warning
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath*:mapper/*.xml
+  type-aliases-package: com.lockie.quartz.model
