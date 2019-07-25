@@ -1,0 +1,402 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lockie.order.mapper.ShopOrderMapper">
+  <resultMap id="BaseResultMap" type="com.lockie.order.model.ShopOrder">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="order_date" jdbcType="TIMESTAMP" property="orderDate" />
+    <result column="order_status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="order_total" jdbcType="DECIMAL" property="orderTotal" />
+    <result column="order_currency_code" jdbcType="CHAR" property="orderCurrencyCode" />
+    <result column="total_qty_ordered" jdbcType="INTEGER" property="totalQtyOrdered" />
+    <result column="total_item_count" jdbcType="INTEGER" property="totalItemCount" />
+    <result column="order_type" jdbcType="VARCHAR" property="orderType" />
+    <result column="order_source" jdbcType="VARCHAR" property="orderSource" />
+    <result column="order_email_flag" jdbcType="INTEGER" property="orderEmailFlag" />
+    <result column="order_unpay_email_flag" jdbcType="INTEGER" property="orderUnpayEmailFlag" />
+    <result column="create_by" jdbcType="INTEGER" property="createBy" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="update_by" jdbcType="INTEGER" property="updateBy" />
+    <result column="update_date" jdbcType="TIMESTAMP" property="updateDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, user_id, order_no, order_date, order_status, order_total, order_currency_code, 
+    total_qty_ordered, total_item_count, order_type, order_source, order_email_flag, 
+    order_unpay_email_flag, create_by, create_date, update_by, update_date
+  </sql>
+  <select id="selectByExample" parameterType="com.lockie.order.model.ShopOrderExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    'true' as QUERYID,
+    <include refid="Base_Column_List" />
+    from shop_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from shop_order
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from shop_order
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.lockie.order.model.ShopOrderExample">
+    delete from shop_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.lockie.order.model.ShopOrder">
+    insert into shop_order (id, user_id, order_no, 
+      order_date, order_status, order_total, 
+      order_currency_code, total_qty_ordered, total_item_count, 
+      order_type, order_source, order_email_flag, 
+      order_unpay_email_flag, create_by, create_date, 
+      update_by, update_date)
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{orderNo,jdbcType=VARCHAR}, 
+      #{orderDate,jdbcType=TIMESTAMP}, #{orderStatus,jdbcType=INTEGER}, #{orderTotal,jdbcType=DECIMAL}, 
+      #{orderCurrencyCode,jdbcType=CHAR}, #{totalQtyOrdered,jdbcType=INTEGER}, #{totalItemCount,jdbcType=INTEGER}, 
+      #{orderType,jdbcType=VARCHAR}, #{orderSource,jdbcType=VARCHAR}, #{orderEmailFlag,jdbcType=INTEGER}, 
+      #{orderUnpayEmailFlag,jdbcType=INTEGER}, #{createBy,jdbcType=INTEGER}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=INTEGER}, #{updateDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.lockie.order.model.ShopOrder">
+    insert into shop_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="orderDate != null">
+        order_date,
+      </if>
+      <if test="orderStatus != null">
+        order_status,
+      </if>
+      <if test="orderTotal != null">
+        order_total,
+      </if>
+      <if test="orderCurrencyCode != null">
+        order_currency_code,
+      </if>
+      <if test="totalQtyOrdered != null">
+        total_qty_ordered,
+      </if>
+      <if test="totalItemCount != null">
+        total_item_count,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="orderSource != null">
+        order_source,
+      </if>
+      <if test="orderEmailFlag != null">
+        order_email_flag,
+      </if>
+      <if test="orderUnpayEmailFlag != null">
+        order_unpay_email_flag,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateDate != null">
+        update_date,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDate != null">
+        #{orderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderTotal != null">
+        #{orderTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="orderCurrencyCode != null">
+        #{orderCurrencyCode,jdbcType=CHAR},
+      </if>
+      <if test="totalQtyOrdered != null">
+        #{totalQtyOrdered,jdbcType=INTEGER},
+      </if>
+      <if test="totalItemCount != null">
+        #{totalItemCount,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSource != null">
+        #{orderSource,jdbcType=VARCHAR},
+      </if>
+      <if test="orderEmailFlag != null">
+        #{orderEmailFlag,jdbcType=INTEGER},
+      </if>
+      <if test="orderUnpayEmailFlag != null">
+        #{orderUnpayEmailFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.lockie.order.model.ShopOrderExample" resultType="java.lang.Long">
+    select count(*) from shop_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update shop_order
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null">
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderNo != null">
+        order_no = #{record.orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderDate != null">
+        order_date = #{record.orderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.orderStatus != null">
+        order_status = #{record.orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderTotal != null">
+        order_total = #{record.orderTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="record.orderCurrencyCode != null">
+        order_currency_code = #{record.orderCurrencyCode,jdbcType=CHAR},
+      </if>
+      <if test="record.totalQtyOrdered != null">
+        total_qty_ordered = #{record.totalQtyOrdered,jdbcType=INTEGER},
+      </if>
+      <if test="record.totalItemCount != null">
+        total_item_count = #{record.totalItemCount,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderType != null">
+        order_type = #{record.orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderSource != null">
+        order_source = #{record.orderSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderEmailFlag != null">
+        order_email_flag = #{record.orderEmailFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.orderUnpayEmailFlag != null">
+        order_unpay_email_flag = #{record.orderUnpayEmailFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.createBy != null">
+        create_by = #{record.createBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateBy != null">
+        update_by = #{record.updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="record.updateDate != null">
+        update_date = #{record.updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update shop_order
+    set id = #{record.id,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      order_no = #{record.orderNo,jdbcType=VARCHAR},
+      order_date = #{record.orderDate,jdbcType=TIMESTAMP},
+      order_status = #{record.orderStatus,jdbcType=INTEGER},
+      order_total = #{record.orderTotal,jdbcType=DECIMAL},
+      order_currency_code = #{record.orderCurrencyCode,jdbcType=CHAR},
+      total_qty_ordered = #{record.totalQtyOrdered,jdbcType=INTEGER},
+      total_item_count = #{record.totalItemCount,jdbcType=INTEGER},
+      order_type = #{record.orderType,jdbcType=VARCHAR},
+      order_source = #{record.orderSource,jdbcType=VARCHAR},
+      order_email_flag = #{record.orderEmailFlag,jdbcType=INTEGER},
+      order_unpay_email_flag = #{record.orderUnpayEmailFlag,jdbcType=INTEGER},
+      create_by = #{record.createBy,jdbcType=INTEGER},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP},
+      update_by = #{record.updateBy,jdbcType=INTEGER},
+      update_date = #{record.updateDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.lockie.order.model.ShopOrder">
+    update shop_order
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDate != null">
+        order_date = #{orderDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderStatus != null">
+        order_status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="orderTotal != null">
+        order_total = #{orderTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="orderCurrencyCode != null">
+        order_currency_code = #{orderCurrencyCode,jdbcType=CHAR},
+      </if>
+      <if test="totalQtyOrdered != null">
+        total_qty_ordered = #{totalQtyOrdered,jdbcType=INTEGER},
+      </if>
+      <if test="totalItemCount != null">
+        total_item_count = #{totalItemCount,jdbcType=INTEGER},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSource != null">
+        order_source = #{orderSource,jdbcType=VARCHAR},
+      </if>
+      <if test="orderEmailFlag != null">
+        order_email_flag = #{orderEmailFlag,jdbcType=INTEGER},
+      </if>
+      <if test="orderUnpayEmailFlag != null">
+        order_unpay_email_flag = #{orderUnpayEmailFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=INTEGER},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=INTEGER},
+      </if>
+      <if test="updateDate != null">
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.lockie.order.model.ShopOrder">
+    update shop_order
+    set user_id = #{userId,jdbcType=INTEGER},
+      order_no = #{orderNo,jdbcType=VARCHAR},
+      order_date = #{orderDate,jdbcType=TIMESTAMP},
+      order_status = #{orderStatus,jdbcType=INTEGER},
+      order_total = #{orderTotal,jdbcType=DECIMAL},
+      order_currency_code = #{orderCurrencyCode,jdbcType=CHAR},
+      total_qty_ordered = #{totalQtyOrdered,jdbcType=INTEGER},
+      total_item_count = #{totalItemCount,jdbcType=INTEGER},
+      order_type = #{orderType,jdbcType=VARCHAR},
+      order_source = #{orderSource,jdbcType=VARCHAR},
+      order_email_flag = #{orderEmailFlag,jdbcType=INTEGER},
+      order_unpay_email_flag = #{orderUnpayEmailFlag,jdbcType=INTEGER},
+      create_by = #{createBy,jdbcType=INTEGER},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=INTEGER},
+      update_date = #{updateDate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
