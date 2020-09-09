@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xml>
 <configuration debug="false" scan="true">
-	<contextName>product-service</contextName>
+	<contextName>zipkin-service</contextName>
 	<!--定义日志文件的存储地址 -->
 	<property name="LOG_HOME" value="./logs" />
 	<springProperty scope="context" name="dst.logstash-url" source="dst.logstash-url" defaultValue="localhost"/>
