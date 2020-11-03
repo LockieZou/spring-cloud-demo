@@ -13,7 +13,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @EnableEurekaClient
 @MapperScan("com.lockie.order.mapper")
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.lockie.common.util")
 public class OrderServiceApplication {
 
 	public static void main(String[] args) {

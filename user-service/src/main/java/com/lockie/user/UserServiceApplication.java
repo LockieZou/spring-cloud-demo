@@ -9,7 +9,7 @@ import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.lockie.common.util")
 @EnableCircuitBreaker
 @EnableFeignClients
 @MapperScan("com.lockie.user.mapper")

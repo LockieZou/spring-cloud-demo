@@ -18,8 +18,7 @@ import org.springframework.web.client.RestTemplate;
 @EnableFeignClients
 @MapperScan("com.lockie.address.mapper")
 @EnableCaching		// 开启缓存
-//@ServletComponentScan(basePackages = {"com.lockie.demo.config"})	// 扫描servlet和filter
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.lockie.common.util")
 public class AddressServiceApplication {
 
 	public static void main(String[] args) {
