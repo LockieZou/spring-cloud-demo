@@ -56,6 +56,8 @@ order-service port：5100 <br/>
 order-service port：4100 <br/>  
 
 user-service 增加了AOP切面，通过调用 http://localhost:5001/USER-SERVICE/user/getUserById/1 就可以看到控制台上输出的日志，AOP切面做了简单的日志输入。  
+common-service 增加了雪花算法获取分布式ID生成工具IdGenerateUtil  
+  
 
 
 **mongodb:**  
