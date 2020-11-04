@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * @author: 邹细良
+ * @author: lockie
  * @Date: 2020/7/6 17:21
  * @Description:
  */

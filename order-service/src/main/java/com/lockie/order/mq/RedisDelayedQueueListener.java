@@ -1,7 +1,7 @@
 package com.lockie.order.mq;
 
 /**
- * @author: 邹细良
+ * @author: lockie
  * @Date: 2020/7/6 17:10
  * @Description:
  */

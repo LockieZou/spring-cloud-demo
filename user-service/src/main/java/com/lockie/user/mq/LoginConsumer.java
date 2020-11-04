@@ -7,7 +7,7 @@ import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.stereotype.Component;
 
 /**
- * @author: 邹细良
+ * @author: lockie
  * @Date: 2019/4/29 15:50
  * @Description:
  */

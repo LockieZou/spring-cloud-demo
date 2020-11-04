@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @author: 邹细良
+ * @author: lockie
  * @Date: 2020/7/6 17:17
  * @Description:
  */

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.io.Serializable;
 
 /**
- * @author: 邹细良
+ * @author: lockie
  * @Date: 2019/7/12 14:59
  * @Description: DisallowConcurrentExecution 告诉Quartz不要并发地执行同一个job定义（这里指特定的job类）的多个实例
  * @Description: PersistJobDataAfterExecution 告诉Quartz在成功执行了job类的execute方法后（没有发生任何异常），更新JobDetail中JobDataMap的数据，

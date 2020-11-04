@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @author: 邹细良
+ * @author: lockie
  * @Date: 2019/4/29 14:36
  * @Description:
  */
